@@ -3,6 +3,7 @@ package Pages;
 import com.codeborne.selenide.SelenideDriver;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import static com.codeborne.selenide.Selenide.*;
@@ -16,7 +17,7 @@ public class LoginPage extends BasePage
         password_ = $(By.name("st.password"));
         enter_ = $(By.cssSelector("input.button-pro.__wide"));
     }
-    public void login(){
+    public void login() throws NoSuchElementException{
         open("https://ok.ru/");
         login_.setValue("+79117703698");
         password_.setValue("Gromov12345");
