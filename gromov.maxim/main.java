@@ -1,14 +1,9 @@
-import Pages.LoginPage;
-import Pages.MainPage;
+import Pages.*;
 import com.codeborne.selenide.SelenideDriver;
-import com.codeborne.selenide.SelenideElement;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.chrome.ChromeDriver;
-import static com.codeborne.selenide.Selenide.*;
+import java.util.List;
+import org.junit.Assert;
 
 public class main
 {
@@ -25,11 +20,21 @@ public class main
     @Test
     public void musicGo() {
         try {
-            MainPage mainPage = new MainPage(driver);
+            MusicPage mainPage = new MusicPage(driver);
             mainPage.playMusic();
         }
         catch (NoSuchElementException exception){
           exception.getCause();
+        }
+    }
+    @Test
+    public void shortsMusic() {
+        try {
+            MusicPage musicPage = new MusicPage(driver);
+            List<Music> musicList = musicPage.checkAllMusic();
+            musicPage.counterShortMusic(musicList);
+        } catch (NoSuchElementException exception) {
+            exception.getCause();
         }
     }
     protected SelenideDriver driver;
