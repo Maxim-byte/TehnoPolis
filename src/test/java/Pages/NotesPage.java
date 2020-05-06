@@ -1,35 +1,35 @@
 package Pages;
 
 import Pages.WrapperOnInfoChangeAlert.NoteAlertWrapper;
-import SourceClases.UtilitiesForElements;
+import SourceClases.ElementUtils;
 import com.codeborne.selenide.SelenideDriver;
+import org.jetbrains.annotations.NotNull;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 public class NotesPage extends BasePage {
-    private static final By NOTE_ALERT_BUTTON_LOCATOR = By.className("pf-head_itx_a");
+    private static final By NOTE_ALERT_BUTTON_LOCATOR =
+            By.xpath(".//div[contains(@data-l, 't,feed.posting.ui.input')]//div[text()= 'Напишите заметку']");
     private static final By LAST_NOTE_LOCATOR =
             By.xpath(".//div[contains(@tsid, 'userStatusShares')]//div[contains(@class, 'media-block media-text __full emoji-m __size-1')]");
 
-    public NotesPage(SelenideDriver driver) {
-        super(driver);
+    public NotesPage() {
+        super();
     }
 
     @Override
     protected void check() {
-        assertTrue("Note alert button invisible!!!", UtilitiesForElements.isElementVisible(driver, NOTE_ALERT_BUTTON_LOCATOR));
+        Assert.assertTrue("Note alert button invisible!!!", ElementUtils.isElementVisible(NOTE_ALERT_BUTTON_LOCATOR));
     }
 
-    public NotesPage makeNote(String text) {
-        assertTrue(UtilitiesForElements.clickIfElementPresentAndVisible(driver, NOTE_ALERT_BUTTON_LOCATOR));
-        NoteAlertWrapper newNote = new NoteAlertWrapper(driver);
+    public void makeNote(final @NotNull String text) {
+        Assert.assertTrue(ElementUtils.clickIfElementPresentAndVisible(NOTE_ALERT_BUTTON_LOCATOR));
+        NoteAlertWrapper newNote = new NoteAlertWrapper();
         newNote.writeNote(text);
-        return newNote.exitAndSave();
+        newNote.exitAndSave();;
     }
 
-    public void checkLastNote(String expectedText) {
-        assertEquals(expectedText, UtilitiesForElements.find(driver, LAST_NOTE_LOCATOR).text());
+    public void checkLastNote(final @NotNull String expectedText) {
+        Assert.assertEquals(expectedText, ElementUtils.find(LAST_NOTE_LOCATOR).text());
     }
 }

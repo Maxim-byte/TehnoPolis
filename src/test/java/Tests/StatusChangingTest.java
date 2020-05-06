@@ -1,6 +1,7 @@
 package Tests;
 
 import Pages.MyHomePage;
+import com.codeborne.selenide.Selenide;
 import org.junit.Test;
 
 public class StatusChangingTest extends BaseTest {
@@ -10,7 +11,7 @@ public class StatusChangingTest extends BaseTest {
     public void checkStatusChanging() {
         final MyHomePage myHomePage = homePage(BOT3);
         myHomePage.changeStatus(STATUS);
-        driver.refresh();
+        Selenide.refresh();
         myHomePage.checkStatusChanging(STATUS);
     }
 

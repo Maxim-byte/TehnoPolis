@@ -13,7 +13,6 @@ import org.junit.Test;
 public class BaseTest {
     private static final String BASE_URL = "http://ok.ru";
     protected static final Bot BOT3 = new Bot("TechoBot3", "TechnoPolis19");
-    protected SelenideDriver driver;
 
     @Before
     public void setUp() {
@@ -28,8 +27,8 @@ public class BaseTest {
     }
 
     protected MyMainPage login(Bot bot) {
-        LoginPage loginPage = new LoginPage(driver);
-        return loginPage.doLogin(BOT3);
+        LoginPage loginPage = new LoginPage();
+        return loginPage.doLogin(BOT3.username, BOT3.password);
     }
 
     protected MyHomePage homePage(Bot bot) {
@@ -38,7 +37,7 @@ public class BaseTest {
 
     @After
     public void closeAll() {
-        driver.close();
+        Selenide.closeWebDriver();
     }
 
 }

@@ -1,9 +1,7 @@
 package Tests;
 
-import Pages.LoginPage;
 import Pages.MyHomePage;
-import Pages.MyInfoPage;
-import Pages.MyMainPage;
+import Pages.MyOptionsPage;
 import org.junit.Test;
 
 public class EditInfoTest extends BaseTest {
@@ -13,7 +11,8 @@ public class EditInfoTest extends BaseTest {
     @Test
     public void changeInfoTest() {
         final MyHomePage myHomePage = homePage(BOT3);
-        final MyInfoPage myInfoPage = myHomePage.openInfoPage();
-        myInfoPage.checkNameAndSurname(NAME, SURNAME);
+        final MyOptionsPage myOptionsPage = myHomePage.openInfoPage();
+        myOptionsPage.changeNameAndSurname(NAME, SURNAME);
+        myOptionsPage.checkNameAndSurname(NAME, SURNAME);
     }
 }
