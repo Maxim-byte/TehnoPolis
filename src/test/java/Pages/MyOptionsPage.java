@@ -2,11 +2,10 @@ package Pages;
 
 import Pages.WrapperOnInfoChangeAlert.InfoAlertWrapper;
 import SourceClases.ElementUtils;
-import com.codeborne.selenide.Selenide;
 import org.jetbrains.annotations.NotNull;
-import org.junit.Assert;
 import org.openqa.selenium.By;
-import sun.rmi.rmic.Main;
+
+import static com.codeborne.selenide.Selenide.$;
 
 public class MyOptionsPage extends BasePage {
     private static final By MAIN_SETTINGS_BUTTON_LOCATOR
@@ -21,23 +20,21 @@ public class MyOptionsPage extends BasePage {
 
     @Override
     protected void check() {
-        Assert.assertTrue("Main settings button invisible!!!",
-                ElementUtils.isElementVisible(MAIN_SETTINGS_BUTTON_LOCATOR));
-        Assert.assertTrue("Personal data field invisible!!!",
-                ElementUtils.isElementVisible(PERSONAL_DATA_FIELD_LOCATOR));
-        Assert.assertTrue("Home page button invisible!!!",
-                ElementUtils.isElementVisible(HOME_PAGE_BUTTON_LOCATOR));
+        ElementUtils.checkPresentAndVisibility("Main settings button invisible!!!", MAIN_SETTINGS_BUTTON_LOCATOR);
+        ElementUtils.checkPresentAndVisibility("Personal data field invisible!!!", PERSONAL_DATA_FIELD_LOCATOR);
+        ElementUtils.checkPresentAndVisibility("Home page button invisible!!!", HOME_PAGE_BUTTON_LOCATOR);
     }
 
-    public boolean checkNameAndSurname(final @NotNull String name,final @NotNull String surname) {
-        String actualIF = Selenide.$(HOME_PAGE_BUTTON_LOCATOR).text();
+    public boolean checkNameAndSurname(final @NotNull String name, final @NotNull String surname) {
+        String actualIF = $(HOME_PAGE_BUTTON_LOCATOR).text();
         String expectedStr = name + " " + surname;
         return actualIF.equals(expectedStr);
     }
 
-    public void changeNameAndSurname(final @NotNull String newName,final @NotNull String newSurname) {
-        Assert.assertTrue(ElementUtils.clickIfElementPresentAndVisible(MAIN_SETTINGS_BUTTON_LOCATOR));
-        Assert.assertTrue(ElementUtils.clickIfElementPresentAndVisible(PERSONAL_DATA_FIELD_LOCATOR));
+    //delete old name and surname and add new
+    public void changeNameAndSurname(final @NotNull String newName, final @NotNull String newSurname) {
+        ElementUtils.click(MAIN_SETTINGS_BUTTON_LOCATOR);
+        ElementUtils.click(PERSONAL_DATA_FIELD_LOCATOR);
         InfoAlertWrapper infoAlertWrapper = new InfoAlertWrapper();
         infoAlertWrapper.changeName(newName);
         infoAlertWrapper.changeSurname(newSurname);

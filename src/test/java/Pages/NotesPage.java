@@ -2,7 +2,6 @@ package Pages;
 
 import Pages.WrapperOnInfoChangeAlert.NoteAlertWrapper;
 import SourceClases.ElementUtils;
-import com.codeborne.selenide.SelenideDriver;
 import org.jetbrains.annotations.NotNull;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -19,14 +18,15 @@ public class NotesPage extends BasePage {
 
     @Override
     protected void check() {
-        Assert.assertTrue("Note alert button invisible!!!", ElementUtils.isElementVisible(NOTE_ALERT_BUTTON_LOCATOR));
+        ElementUtils.checkPresentAndVisibility("Note alert button invisible!!!", NOTE_ALERT_BUTTON_LOCATOR);
     }
 
+    //make new note with wrapper
     public void makeNote(final @NotNull String text) {
-        Assert.assertTrue(ElementUtils.clickIfElementPresentAndVisible(NOTE_ALERT_BUTTON_LOCATOR));
+        ElementUtils.click(NOTE_ALERT_BUTTON_LOCATOR);
         NoteAlertWrapper newNote = new NoteAlertWrapper();
         newNote.writeNote(text);
-        newNote.exitAndSave();;
+        newNote.exitAndSave();
     }
 
     public void checkLastNote(final @NotNull String expectedText) {

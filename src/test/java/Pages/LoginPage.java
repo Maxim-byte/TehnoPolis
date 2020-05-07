@@ -1,9 +1,7 @@
 package Pages;
 
-import SourceClases.Bot;
 import SourceClases.ElementUtils;
 import org.jetbrains.annotations.NotNull;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 
 public class LoginPage extends BasePage {
@@ -17,15 +15,15 @@ public class LoginPage extends BasePage {
 
     @Override
     protected void check() {
-        Assert.assertTrue("Button invisible or presented!!!", ElementUtils.isElementVisible(BUTTON_LOCATOR));
-        Assert.assertTrue("Email field invisible or not presented!!!", ElementUtils.isElementVisible(BUTTON_LOCATOR));
-        Assert.assertTrue("Password field invisible or not presented!!!", ElementUtils.isElementVisible(BUTTON_LOCATOR));
+        ElementUtils.checkPresentAndVisibility("Button invisible or presented!!!", BUTTON_LOCATOR);
+        ElementUtils.checkPresentAndVisibility("Email field invisible or not presented!!!", BUTTON_LOCATOR);
+        ElementUtils.checkPresentAndVisibility("Password field invisible or not presented!!!", BUTTON_LOCATOR);
     }
 
     public MyMainPage doLogin(final @NotNull String username, final @NotNull String password) {
-        Assert.assertTrue(ElementUtils.sendKeysIfElementPresentAndVisible(EMAIL_LOCATOR, username));
-        Assert.assertTrue(ElementUtils.sendKeysIfElementPresentAndVisible(PASSWORD_LOCATOR, password));
-        Assert.assertTrue(ElementUtils.clickIfElementPresentAndVisible(BUTTON_LOCATOR));
+        ElementUtils.sendKeys(EMAIL_LOCATOR, username);
+        ElementUtils.sendKeys(PASSWORD_LOCATOR, password);
+        ElementUtils.click(BUTTON_LOCATOR);
         return new MyMainPage();
     }
 }

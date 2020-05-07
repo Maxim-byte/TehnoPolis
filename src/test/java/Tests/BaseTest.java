@@ -4,11 +4,11 @@ import Pages.LoginPage;
 import Pages.MyHomePage;
 import Pages.MyMainPage;
 import SourceClases.Bot;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideDriver;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.open;
 
 public class BaseTest {
     private static final String BASE_URL = "http://ok.ru";
@@ -18,26 +18,31 @@ public class BaseTest {
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "C:\\config\\chromedriver.exe");
         System.setProperty("selenide.browser", "Chrome");
-        Selenide.open(BASE_URL);
+        open(BASE_URL);
     }
 
-    @Test
-    public void doLoginTest() {
-        login(BOT3);
-    }
-
+    /**
+     * This method do login.
+     *
+     * @param bot
+     */
     protected MyMainPage login(Bot bot) {
         LoginPage loginPage = new LoginPage();
         return loginPage.doLogin(BOT3.username, BOT3.password);
     }
 
+    /**
+     * This method do login and open homePage.
+     *
+     * @param bot
+     */
     protected MyHomePage homePage(Bot bot) {
         return login(BOT3).openHomePage();
     }
 
     @After
     public void closeAll() {
-        Selenide.closeWebDriver();
+        closeWebDriver();
     }
 
 }

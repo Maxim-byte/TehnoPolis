@@ -1,8 +1,6 @@
 package Pages;
 
 import SourceClases.ElementUtils;
-import com.codeborne.selenide.SelenideDriver;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 
 public class MyMainPage extends BasePage {
@@ -15,12 +13,11 @@ public class MyMainPage extends BasePage {
 
     @Override
     protected void check() {
-        Assert.assertTrue("My home page button is invisible!!!",
-                ElementUtils.isElementVisible(MY_HOME_PAGE_BUTTON_LOCATOR));
+        ElementUtils.checkPresentAndVisibility("My home page button is invisible!!!", MY_HOME_PAGE_BUTTON_LOCATOR);
     }
 
     public MyHomePage openHomePage() {
-        Assert.assertTrue(ElementUtils.clickIfElementPresentAndVisible(MY_HOME_PAGE_BUTTON_LOCATOR));
+        ElementUtils.click(MY_HOME_PAGE_BUTTON_LOCATOR);
         return new MyHomePage();
     }
 }

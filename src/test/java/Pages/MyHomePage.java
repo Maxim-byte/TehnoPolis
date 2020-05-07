@@ -22,35 +22,30 @@ public class MyHomePage extends BasePage {
 
     @Override
     protected void check() {
-        Assert.assertTrue("Button more is not visible or not presented!!!",
-                ElementUtils.isElementVisible(OPTIONS_BUTTON_LOCATOR));
-        Assert.assertTrue("Button notes is not visible or not presented!!!",
-                ElementUtils.isElementVisible(NOTES_BUTTON_LOCATOR));
-        Assert.assertTrue("Status button locator is not visible or not presented!!!",
-                ElementUtils.isElementVisible(STATUS_BUTTON_LOCATOR));
+        ElementUtils.checkPresentAndVisibility("Button more is not visible or not presented!!!", OPTIONS_BUTTON_LOCATOR);
+        ElementUtils.checkPresentAndVisibility("Button notes is not visible or not presented!!!", NOTES_BUTTON_LOCATOR);
+        ElementUtils.checkPresentAndVisibility("Status button locator is not visible or not presented!!!", STATUS_BUTTON_LOCATOR);
     }
 
     public MyOptionsPage openInfoPage() {
-        Assert.assertTrue(ElementUtils.clickIfElementPresentAndVisible(OPTIONS_BUTTON_LOCATOR));
+        ElementUtils.click(OPTIONS_BUTTON_LOCATOR);
         return new MyOptionsPage();
     }
 
     public NotesPage openNotes() {
-        Assert.assertTrue(ElementUtils.clickIfElementPresentAndVisible(NOTES_BUTTON_LOCATOR));
+        ElementUtils.click(NOTES_BUTTON_LOCATOR);
         return new NotesPage();
     }
 
+    //delete old status and make new
     public void changeStatus(final @NotNull String text) {
-        Assert.assertTrue(ElementUtils.clickIfElementPresentAndVisible(STATUS_BUTTON_LOCATOR));
-        Assert.assertTrue("Status text field is not visible or not presented!!!",
-                ElementUtils.sendKeysWithDeleteOldValueIfElementPresentAndVisible(STATUS_TEXT_FIELD_LOCATOR, text));
-        Assert.assertTrue("Status changing button invisible or not presented!!!",
-                ElementUtils.clickIfElementPresentAndVisible(SAVE_STATUS_BUTTON_LOCATOR));
+        ElementUtils.click(STATUS_BUTTON_LOCATOR);
+        ElementUtils.sendKeysWithDeleteOldValue(STATUS_TEXT_FIELD_LOCATOR, text);
+        ElementUtils.click(SAVE_STATUS_BUTTON_LOCATOR);
     }
 
     public void checkStatusChanging(final @NotNull String expectedText) {
-        Assert.assertTrue("Status text field invisible or not present!!!",
-                ElementUtils.isElementVisible(STATUS_TEXT_FIELD_WITH_TEXT_LOCATOR));
+        ElementUtils.checkPresentAndVisibility("Status text field invisible or not present!!!", STATUS_TEXT_FIELD_WITH_TEXT_LOCATOR);
         Assert.assertEquals(expectedText, ElementUtils.find(STATUS_TEXT_FIELD_WITH_TEXT_LOCATOR).text());
     }
 }
