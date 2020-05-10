@@ -37,6 +37,7 @@ public class MyHomePage extends BasePage {
         return new NotesPage();
     }
 
+
     //delete old status and make new
     public void changeStatus(final @NotNull String text) {
         ElementUtils.click(STATUS_BUTTON_LOCATOR);
