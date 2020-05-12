@@ -110,4 +110,17 @@ public class ElementUtils {
     public static void checkPresentAndVisibility(String message, By locator) {
         Assert.assertTrue(message, isElementPresent(locator) && isElementVisible(locator));
     }
+
+    public static String getValue(By locator) {
+        SelenideElement element = find(locator);
+        return element.innerText();
+    }
+
+    public static void checkEqualsWithAssert(String message, @NotNull Object obj1, Object obj2) {
+        Assert.assertFalse(message, obj1.equals(obj2));
+    }
+
+    public static boolean isDisplayed(By locator) {
+        return Selenide.$(locator).isDisplayed();
+    }
 }

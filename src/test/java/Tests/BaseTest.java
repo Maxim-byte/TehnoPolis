@@ -1,8 +1,6 @@
 package Tests;
 
-import Pages.LoginPage;
-import Pages.MyHomePage;
-import Pages.MyMainPage;
+import Pages.*;
 import SourceClases.Bot;
 import org.junit.After;
 import org.junit.Before;
@@ -18,6 +16,7 @@ public class BaseTest {
     @Before
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "/home/maxim/chromedriver");
+        //System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
         System.setProperty("selenide.browser", "Chrome");
         open(BASE_URL);
     }
@@ -40,6 +39,20 @@ public class BaseTest {
     protected MyHomePage homePage(Bot bot) {
         return login(BOT3).openHomePage();
     }
+
+
+    protected MusicPage musicPage(Bot bot) {
+        return login(BOT3).openMusicPage();
+    }
+
+    protected UserPage userPage(Bot bot) {
+        return login(BOT3).openUserPage();
+    }
+
+    protected MyMainPage openMyMainPage(Bot bot) {
+        return login(BOT3);
+    }
+
 
     @After
     public void closeAll() {
