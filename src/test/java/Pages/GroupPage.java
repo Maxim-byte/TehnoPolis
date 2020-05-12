@@ -4,8 +4,9 @@ import SourceClases.ElementUtils;
 import org.jetbrains.annotations.NotNull;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.sleep;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class GroupPage extends BasePage
 {
@@ -15,7 +16,7 @@ public class GroupPage extends BasePage
     private static final By ENTER_GROUP_LOCATOR = By.cssSelector("[data-l='t,join']");
     private static final By COUNT_GROUP_LOCATOR = By.cssSelector("[data-l='groupCard,null']");
     private static final By GO_TO_SEARCH_GROUP_LOCATOR = By.cssSelector(".mctc_navMenuActiveSec");
-    private static int countOwnGroup;
+    private static int countOwnGroup = 0;
 
     @Override
     protected void check() {
