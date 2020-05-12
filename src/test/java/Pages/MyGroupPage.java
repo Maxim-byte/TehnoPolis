@@ -4,8 +4,7 @@ import SourceClases.ElementUtils;
 import org.jetbrains.annotations.NotNull;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
 
 public class MyGroupPage extends BasePage {
     private static final By POST_TEXT_FIELD_LOCATOR = By.cssSelector(".input_placeholder");
