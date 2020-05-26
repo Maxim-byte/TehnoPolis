@@ -21,6 +21,7 @@ public class NotesPage extends BasePage {
         ElementUtils.checkPresentAndVisibility("Note alert button invisible!!!", NOTE_ALERT_BUTTON_LOCATOR);
     }
 
+    //TODO fix NoteAlertWrapper
     //make new note with wrapper
     public void makeNote(final @NotNull String text) {
         ElementUtils.click(NOTE_ALERT_BUTTON_LOCATOR);
@@ -28,7 +29,7 @@ public class NotesPage extends BasePage {
         newNote.writeNote(text);
         newNote.exitAndSave();
     }
-
+    //TODO add Wrapper
     public void checkLastNote(final @NotNull String expectedText) {
         Assert.assertEquals(expectedText, ElementUtils.find(LAST_NOTE_LOCATOR).text());
     }

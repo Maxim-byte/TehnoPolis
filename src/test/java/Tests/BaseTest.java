@@ -30,7 +30,7 @@ public class BaseTest {
         LoginPage loginPage = new LoginPage();
         return loginPage.doLogin(BOT3.username, BOT3.password);
     }
-
+    //TODO navigation class
     /**
      * This method do login and open homePage.
      *
@@ -38,7 +38,7 @@ public class BaseTest {
      */
     protected MyHomePage homePage(Bot bot) {
         return login(BOT3).openHomePage();
-    }
+    } //TODO openHomePage
 
 
     protected MusicPage musicPage(Bot bot) {
