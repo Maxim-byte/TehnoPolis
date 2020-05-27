@@ -5,6 +5,11 @@ import SourceClases.ElementUtils;
 import org.jetbrains.annotations.NotNull;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.hamcrest.*;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class NotesPage extends BasePage {
     private static final By NOTE_ALERT_BUTTON_LOCATOR =
@@ -31,6 +36,7 @@ public class NotesPage extends BasePage {
     }
     //TODO add Wrapper
     public void checkLastNote(final @NotNull String expectedText) {
-        Assert.assertEquals(expectedText, ElementUtils.find(LAST_NOTE_LOCATOR).text());
+        assertThat(ElementUtils.find(LAST_NOTE_LOCATOR).text(), notNullValue());
+        assertThat(expectedText, equalTo(ElementUtils.find(LAST_NOTE_LOCATOR).text()));
     }
 }

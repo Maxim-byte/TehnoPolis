@@ -9,6 +9,9 @@ import org.openqa.selenium.By;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
 public class MyMainPage extends BasePage {
 
     private static final By MY_HOME_PAGE_BUTTON_LOCATOR = By.xpath(".//a[contains(@data-l, 't,userPage')]");
@@ -47,7 +50,8 @@ public class MyMainPage extends BasePage {
         return new MyHomePage();
     }
     public void checkLastPost(final @NotNull String expectedText){
-        Assert.assertEquals(expectedText, ElementUtils.find(LAST_POST_LOCATOR).text());
+        assertThat(ElementUtils.find(LAST_POST_LOCATOR).text(), notNullValue());
+        assertThat(expectedText, equalTo(ElementUtils.find(LAST_POST_LOCATOR).text()));
     }
     public GroupPage openGroups() {
         ElementUtils.click(GROUPS_TOOLBAR_BUTTON_LOCATOR);
