@@ -5,6 +5,10 @@ import org.jetbrains.annotations.NotNull;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class MyHomePage extends BasePage {
     private static final By OPTIONS_BUTTON_LOCATOR = By.xpath(".//a[text()= 'Настройки']");
     private static final By NOTES_BUTTON_LOCATOR =
@@ -47,6 +51,7 @@ public class MyHomePage extends BasePage {
 
     public void checkStatusChanging(final @NotNull String expectedText) {
         ElementUtils.checkPresentAndVisibility("Status text field invisible or not present!!!", STATUS_TEXT_FIELD_WITH_TEXT_LOCATOR);
-        Assert.assertEquals(expectedText, ElementUtils.find(STATUS_TEXT_FIELD_WITH_TEXT_LOCATOR).text());
+        assertThat(ElementUtils.find(STATUS_TEXT_FIELD_WITH_TEXT_LOCATOR).text(), notNullValue());
+        assertThat(expectedText, equalTo(ElementUtils.find(STATUS_TEXT_FIELD_WITH_TEXT_LOCATOR).text()));
     }
 }

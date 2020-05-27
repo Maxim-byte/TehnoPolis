@@ -5,6 +5,8 @@ import org.jetbrains.annotations.NotNull;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.CoreMatchers.*;
 
 public class MyGroupPage extends BasePage {
     private static final By POST_TEXT_FIELD_LOCATOR = By.cssSelector(".input_placeholder");
@@ -38,6 +40,7 @@ public class MyGroupPage extends BasePage {
     }
 
     public void checkLastPost(final @NotNull String expectedText) {
-        Assert.assertEquals(expectedText, ElementUtils.find(LAST_POST_LOCATOR).text());
+        assertThat( ElementUtils.find(LAST_POST_LOCATOR).text(), notNullValue());
+        assertThat(expectedText, equalTo(ElementUtils.find(LAST_POST_LOCATOR).text()));
     }
 }
