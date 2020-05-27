@@ -6,16 +6,20 @@ import org.jetbrains.annotations.NotNull;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MyMainPage extends BasePage {
 
     private static final By MY_HOME_PAGE_BUTTON_LOCATOR = By.xpath(".//a[contains(@data-l, 't,userPage')]");
     private static  final By GROUPS_TOOLBAR_BUTTON_LOCATOR = By.cssSelector("[data-l='t,userAltGroup']");
     private static final By LAST_POST_LOCATOR = By.cssSelector(".media-link_a");
     private static final By MUSIC_PAGE_BUTTON_LOCATOR = By.cssSelector(".toolbar_nav_a__audio.h-mod");
-    private static final By LIKE_FIRST_FEED_BUTTON = By.xpath("//div[@class = 'feed-list']/div[3]" +
+    private static final By LIKE_FIRST_FEED_BUTTON = By.xpath("//div[@class = 'feed-list']/div[4]" +
             "//div[@class = 'widget  __wide-count']");
-    private static final By LIKE_ACTIVE_FIRST_FEED_BUTTON = By.xpath("//div[@class = 'feed-list']/div[3]" +
+    private static final By LIKE_ACTIVE_FIRST_FEED_BUTTON = By.xpath("//div[@class = 'feed-list']/div[4]" +
             "//div[@class = 'widget  __active __wide-count']");
+    private static final By FEED_LIST = By.xpath("//div[@class = 'feed-list']");
 
     public MyMainPage() {
         super();

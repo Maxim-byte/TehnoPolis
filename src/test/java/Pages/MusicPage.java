@@ -6,17 +6,19 @@ import org.openqa.selenium.By;
 
 public class MusicPage extends BasePage {
 
-    private static final By MUSIC_ADD_BUTTON = By.xpath("//wm-track-add-button/wm-icon");
-    private static final By MUSIC_MY_LIBRARY_BUTTON = By.xpath("//a[contains(@data-l, 't,library')]");
-    private static final By MUSIC_HEADLINE_TRACK_TITLE = By.xpath("//wm-player-track//span[contains(@class, 'name')]");
-    private static final By MUSIC_HEADLINE_TRACK_ARTIST = By.xpath("//wm-player-track//span[contains(@class, 'artist')]");
-    private static final By MUSIC_FIRST_LIBRARY_TRACK_TITLE = By.xpath("//wm-tracks-list/main/wm-track[1]" +
-            "//a[contains(@data-l, 't,title')]");
-    private static final By MUSIC_FIRST_LIBRARY_TRACK_ARTIST = By.xpath("//wm-tracks-list/main/wm-track[1]" +
-            "//a[contains(@class, 'artist')]");
+    private static final By MUSIC_ADD_BUTTON = By.xpath("//wm-like-button[contains(@data-l, 't,add')]//wm-hint-hook");
+    private static final By MUSIC_MY_LIBRARY_BUTTON = By.xpath("//div[contains(@data-l, 't,library')]");
+    private static final By MUSIC_HEADLINE_TRACK_TITLE = By.xpath("//div[contains(@data-text, 'music.open-track-page')]" +
+            "//div[contains(@class, 'name')]");
+    private static final By MUSIC_HEADLINE_TRACK_ARTIST = By.xpath("//div[contains(@data-text, 'music.open-track-page')]" +
+            "//div[contains(@data-l, 't,artist')]");
+    private static final By MUSIC_FIRST_LIBRARY_TRACK_TITLE = By.xpath("//wm-tracks-list2//wm-track[1]" +
+            "//span[contains(@data-l, 't,title')]");
+    private static final By MUSIC_FIRST_LIBRARY_TRACK_ARTIST = By.xpath("//wm-tracks-list2//wm-track[1]" +
+            "//span[contains(@class, 'artist')]");
 
-    TRACK trackAdded;
-    TRACK trackLibrary;
+    Track trackAdded;
+    Track trackLibrary;
 
     public MusicPage() {
         super();
@@ -28,11 +30,11 @@ public class MusicPage extends BasePage {
 
     public void addTrack() {
         ElementUtils.click(MUSIC_ADD_BUTTON);
-        trackAdded = new TRACK(getAddTrackTitle(), getAddTrackArtist());
+        trackAdded = new Track(getAddTrackTitle(), getAddTrackArtist());
     }
 
     public void checkAddTrack(){
-        trackLibrary = new TRACK(getLibraryTrackTitle(), getLibraryTrackArtist());
+        trackLibrary = new Track(getLibraryTrackTitle(), getLibraryTrackArtist());
         ElementUtils.checkEqualsWithAssert("The track is not added", trackAdded, trackLibrary);
     }
 
@@ -60,11 +62,11 @@ public class MusicPage extends BasePage {
         return ElementUtils.getValue(MUSIC_FIRST_LIBRARY_TRACK_ARTIST);
     }
 
-    private static class TRACK {
+    private static class Track {
         String name;
         String artist;
 
-        TRACK(String name, String artist) {
+        Track(String name, String artist) {
             this.name = name;
             this.artist = artist;
         }
@@ -77,7 +79,7 @@ public class MusicPage extends BasePage {
             return artist;
         }
 
-        public boolean equals(@NotNull TRACK obj){
+        public boolean equals(@NotNull MusicPage.Track obj){
             return ((this.artist.equals(obj.artist)) && (this.name.equals(obj.name)));
         }
     }
