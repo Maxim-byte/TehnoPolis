@@ -12,7 +12,7 @@ public class StatusChangingTest extends BaseTest {
 
     @Test
     public void checkStatusChanging() {
-        final MyHomePage myHomePage = NavigateClass.homePage(BOT.username, BOT.password);
+        final MyHomePage myHomePage = NavigateClass.homePage(BOT.getUsername(), BOT.getPassword());
         myHomePage.changeStatus(STATUS);
         refresh();
         myHomePage.checkStatusChanging(STATUS);

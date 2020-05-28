@@ -8,7 +8,7 @@ public class LikePostTest extends BaseTest {
 
     @Test
     public void CheckLikePost() {
-        final MyMainPage myMainPage = NavigateClass.openMyMainPage(BOT.username, BOT.password);
+        final MyMainPage myMainPage = NavigateClass.openMyMainPage(BOT.getUsername(), BOT.getPassword());
         myMainPage.likeRecommendPost();
         myMainPage.checkLike();
     }
