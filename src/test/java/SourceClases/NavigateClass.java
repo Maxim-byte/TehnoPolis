@@ -8,30 +8,25 @@ import Pages.MusicPage;
 
 
 public class NavigateClass {
-    protected static Bot BOT = new Bot();
 
-    public NavigateClass(Bot BOT) {
-        NavigateClass.BOT = BOT;
-    }
-
-    public static MyMainPage login(Bot bot) {
+    public static MyMainPage login(Bot BOT) {
         LoginPage loginPage = new LoginPage();
         return loginPage.doLogin(BOT.username, BOT.password);
     }
 
-    public static MyHomePage homePage(Bot bot) {
+    public static MyHomePage homePage(Bot BOT) {
         return login(BOT).openHomePage();
     }
 
-    public static MusicPage musicPage(Bot bot) {
+    public static MusicPage musicPage(Bot BOT) {
         return login(BOT).openMusicPage();
     }
 
-    public static UserPage userPage(Bot bot) {
+    public static UserPage userPage(Bot BOT) {
         return login(BOT).openUserPage();
     }
 
-    public static MyMainPage openMyMainPage(Bot bot) {
+    public static MyMainPage openMyMainPage(Bot  BOT) {
         return login(BOT);
     }
 }

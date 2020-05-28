@@ -3,17 +3,14 @@ import SourceClases.Bot;
 import SourceClases.NavigateClass;
 import org.junit.After;
 import org.junit.Before;
-
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class BaseTest extends NavigateClass {
+public class BaseTest {
     private static final String BASE_URL = "http://ok.ru";
 
-    public BaseTest(Bot BOT) {
-        super(BOT);
-    }
+    protected static final Bot BOT = new Bot("TechoBot3", "TechnoPolis19");
 
     @Before
     public void setUp() {
