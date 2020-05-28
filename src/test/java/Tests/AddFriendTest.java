@@ -10,7 +10,7 @@ public class AddFriendTest extends BaseTest{
 
     @Test
     public void AddFriendAndCheckIt() {
-        final UserPage userPage = userPage(BOT);
+        final UserPage userPage = userPage(BOT.username, BOT.password);
         userPage.addFriend();
         userPage.endFriend();
     }

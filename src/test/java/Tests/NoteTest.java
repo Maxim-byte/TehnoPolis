@@ -15,7 +15,7 @@ public class NoteTest extends BaseTest {
     //TODO logger
     @Test
     public void newNoteTest() {
-        final MyHomePage myHomePage = NavigateClass.homePage(BOT);
+        final MyHomePage myHomePage = NavigateClass.homePage(BOT.username, BOT.password);
         final NotesPage notePage = myHomePage.openNotes();
         notePage.makeNote(TEXT);
         sleep(4000); //TODO delete sleep
