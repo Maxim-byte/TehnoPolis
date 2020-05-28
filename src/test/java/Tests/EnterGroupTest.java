@@ -7,7 +7,7 @@ import org.junit.Test;
 
 
 public class EnterGroupTest extends BaseTest {
-    private static String groupName = "Бокс";
+    private static String groupName = "Гонки";
     @Test
     public void newPostTest() {
         final MyMainPage myHomePage = NavigateClass.login(BOT.username, BOT.password);
