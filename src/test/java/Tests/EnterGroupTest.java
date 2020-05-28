@@ -10,7 +10,7 @@ public class EnterGroupTest extends BaseTest {
 
     @Test
     public void newPostTest() {
-        final MyMainPage myHomePage = NavigateClass.login(BOT.getUsername(), BOT.getPassword());
+        final MyMainPage myHomePage = NavigateClass.doLogin(BOT.getUsername(), BOT.getPassword());
         final GroupPage groupPage = myHomePage.openGroups();
         groupPage.addNewGroup(groupName);
         groupPage.checkAdding();

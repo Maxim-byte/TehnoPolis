@@ -11,7 +11,7 @@ public class NoteTest extends BaseTest {
 
     @Test
     public void newNoteTest() {
-        final MyHomePage myHomePage = NavigateClass.homePage(BOT.getUsername(), BOT.getPassword());
+        final MyHomePage myHomePage = NavigateClass.openHomePage(BOT.getUsername(), BOT.getPassword());
         final NotesPage notePage = myHomePage.openNotes();
         notePage.makeNote(TEXT);
         notePage.checkLastNote(TEXT);

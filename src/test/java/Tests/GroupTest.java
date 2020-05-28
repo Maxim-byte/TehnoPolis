@@ -14,7 +14,7 @@ public class GroupTest extends BaseTest {
 
     @Test
     public void newPostTest() {
-        final MyMainPage myHomePage = NavigateClass.login(BOT.getUsername(), BOT.getPassword());
+        final MyMainPage myHomePage = NavigateClass.doLogin(BOT.getUsername(), BOT.getPassword());
         final GroupPage groupPage = myHomePage.openGroups();
         final MyGroupPage myGroupPage = groupPage.searchGroups("Test");
         myGroupPage.typePost(TEXT);

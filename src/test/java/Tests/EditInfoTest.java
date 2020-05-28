@@ -12,7 +12,7 @@ public class EditInfoTest extends BaseTest {
 
     @Test
     public void changeInfoTest() {
-        final MyHomePage myHomePage = NavigateClass.homePage(BOT.getUsername(), BOT.getPassword());
+        final MyHomePage myHomePage = NavigateClass.openHomePage(BOT.getUsername(), BOT.getPassword());
         final MyOptionsPage myOptionsPage = myHomePage.openInfoPage();
         myOptionsPage.changeNameAndSurname(NAME, SURNAME);
         myOptionsPage.checkNameAndSurname(NAME, SURNAME);

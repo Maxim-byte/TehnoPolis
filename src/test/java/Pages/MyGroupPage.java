@@ -37,7 +37,7 @@ public class MyGroupPage extends BasePage {
 
     public void checkReshare() {
         ElementUtils.click(GO_TO_MAIN_PAGE);
-        MyMainPage mainPage = new MyMainPage();
+        MyMainPage mainPage = new MyMainPage();//TODO убрать
         mainPage.checkLastPost(ElementUtils.find(POST_TEXT_LOCATOR).text());
     }
 

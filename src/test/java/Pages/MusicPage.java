@@ -34,7 +34,7 @@ public class MusicPage extends BasePage {
     }
 
     public void checkAddTrack() {
-        trackLibrary = new Track(getLibraryTrackTitle(), getLibraryTrackArtist());
+        trackLibrary = new Track(getLibraryTrackTitle(), getLibraryTrackArtist());//TODO убрать создание
         ElementUtils.checkEqualsWithAssert("The track is not added", trackAdded, trackLibrary);
     }
 

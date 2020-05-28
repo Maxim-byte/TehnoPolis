@@ -28,14 +28,13 @@ public class NotesPage extends BasePage {
     //make new note with wrapper
     public void makeNote(final @NotNull String text) {
         ElementUtils.click(NOTE_ALERT_BUTTON_LOCATOR);
-        NoteAlertPage newNote = new NoteAlertPage();
+        NoteAlertPage newNote = new NoteAlertPage();//TODO убрать
         newNote.writeNote(text);
         newNote.exitAndSave();
     }
 
     public void checkLastNote(final @NotNull String expectedText) {
-        NoteCard lastNoteCard = getAllNotes().get(0);
-        lastNoteCard.checkNoteText(expectedText);
+        getAllNotes().get(0).checkNoteText(expectedText);
     }
 
     private List<NoteCard> getAllNotes() {
