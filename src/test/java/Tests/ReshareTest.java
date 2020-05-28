@@ -6,9 +6,7 @@ import Pages.MyMainPage;
 import SourceClases.NavigateClass;
 import org.junit.Test;
 
-
 public class ReshareTest extends BaseTest {
-
 
     @Test
     public void newPostTest() {

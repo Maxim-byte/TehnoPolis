@@ -1,17 +1,16 @@
-package Pages.WrapperOnInfoChangeAlert;
+package Pages;
 
-import Pages.MyOptionsPage;
 import SourceClases.ElementUtils;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 
-public class InfoAlertWrapper extends BaseAlertWrapper {
+public class InfoAlertPage extends BasePage {
     public static final By NAME_TEXT_FIELD_LOCATOR = By.name("fr.surname");
     public static final By SURNAME_TEXT_FIELD_LOCATOR = By.name("fr.name");
     private static final By SAVE_BUTTON_LOCATOR = By.name("button_savePopLayerEditUserProfileNew");
     private static final By CLOSE_CONFIRMING_ALERT_BUTTON_LOCATOR = By.id("buttonId_button_close");
 
-    public InfoAlertWrapper() {
+    public InfoAlertPage() {
         super();
     }
 

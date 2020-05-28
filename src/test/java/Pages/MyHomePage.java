@@ -2,7 +2,6 @@ package Pages;
 
 import SourceClases.ElementUtils;
 import org.jetbrains.annotations.NotNull;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -40,7 +39,6 @@ public class MyHomePage extends BasePage {
         ElementUtils.click(NOTES_BUTTON_LOCATOR);
         return new NotesPage();
     }
-
 
     //delete old status and make new
     public void changeStatus(final @NotNull String text) {

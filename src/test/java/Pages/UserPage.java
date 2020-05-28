@@ -35,7 +35,7 @@ public class UserPage extends BasePage {
     }
 
     public void addFriend() {
-        if(!ElementUtils.isDisplayed(ADD_FRIEND_BUTTON)){
+        if (!ElementUtils.isDisplayed(ADD_FRIEND_BUTTON)) {
             endFriend();
         }
         ElementUtils.click(ADD_FRIEND_BUTTON);

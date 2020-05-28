@@ -1,10 +1,10 @@
 package Tests;
+
 import SourceClases.Bot;
-import SourceClases.NavigateClass;
 import org.junit.After;
 import org.junit.Before;
-import static com.codeborne.selenide.Selenide.closeWebDriver;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
 public class BaseTest {
@@ -14,7 +14,7 @@ public class BaseTest {
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "/home/maxim/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "C:\\config\\chromedriver.exe");
         System.setProperty("selenide.browser", "Chrome");
         open(BASE_URL);
     }

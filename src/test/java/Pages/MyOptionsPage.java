@@ -1,6 +1,5 @@
 package Pages;
 
-import Pages.WrapperOnInfoChangeAlert.InfoAlertWrapper;
 import SourceClases.ElementUtils;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
@@ -35,7 +34,7 @@ public class MyOptionsPage extends BasePage {
     public void changeNameAndSurname(final @NotNull String newName, final @NotNull String newSurname) {
         ElementUtils.click(MAIN_SETTINGS_BUTTON_LOCATOR);
         ElementUtils.click(PERSONAL_DATA_FIELD_LOCATOR);
-        InfoAlertWrapper infoAlertWrapper = new InfoAlertWrapper();
+        InfoAlertPage infoAlertWrapper = new InfoAlertPage();
         infoAlertWrapper.changeName(newName);
         infoAlertWrapper.changeSurname(newSurname);
         infoAlertWrapper.exitAndSave();

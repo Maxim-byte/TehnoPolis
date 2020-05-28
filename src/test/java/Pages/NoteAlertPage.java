@@ -1,15 +1,15 @@
-package Pages.WrapperOnInfoChangeAlert;
+package Pages;
 
 import SourceClases.ElementUtils;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 
-public class NoteAlertWrapper extends BaseAlertWrapper {
+public class NoteAlertPage extends BasePage {
     private static final By WRITE_NOTE_TEXT_FIELD_LOCATOR =
             By.xpath(".//div[contains(@class, 'posting_itx emoji-tx h-mod js-ok-e js-posting-itx ok-posting-handler')]");
     private static final By SAVE_BUTTON_LOCATOR = By.xpath(".//div[contains(@data-save, 'Сохранить')]");
 
-    public NoteAlertWrapper() {
+    public NoteAlertPage() {
         super();
     }
 
