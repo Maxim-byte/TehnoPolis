@@ -2,10 +2,11 @@ package Tests;
 
 import Pages.MyMainPage;
 import Pages.MyGroupPage;
-import  Pages.GroupPage;
+import Pages.GroupPage;
 import SourceClases.NavigateClass;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
+
 import static com.codeborne.selenide.Selenide.refresh;
 
 public class GroupTest extends BaseTest {

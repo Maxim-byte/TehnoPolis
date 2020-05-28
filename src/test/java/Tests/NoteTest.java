@@ -11,14 +11,12 @@ import static com.codeborne.selenide.Selenide.sleep;
 public class NoteTest extends BaseTest {
     private static final String TEXT = RandomStringUtils.randomAlphabetic(17);
 
-
-    //TODO logger
     @Test
     public void newNoteTest() {
         final MyHomePage myHomePage = NavigateClass.homePage(BOT.username, BOT.password);
         final NotesPage notePage = myHomePage.openNotes();
         notePage.makeNote(TEXT);
-        sleep(4000); //TODO delete sleep
+        sleep(4000);
         notePage.checkLastNote(TEXT);
     }
 }

@@ -6,7 +6,6 @@ import Pages.LoginPage;
 import Pages.MyHomePage;
 import Pages.MusicPage;
 
-
 public class NavigateClass {
 
     public static MyMainPage login(String Username, String Password) {

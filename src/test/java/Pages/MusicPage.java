@@ -33,7 +33,7 @@ public class MusicPage extends BasePage {
         trackAdded = new Track(getAddTrackTitle(), getAddTrackArtist());
     }
 
-    public void checkAddTrack(){
+    public void checkAddTrack() {
         trackLibrary = new Track(getLibraryTrackTitle(), getLibraryTrackArtist());
         ElementUtils.checkEqualsWithAssert("The track is not added", trackAdded, trackLibrary);
     }
@@ -79,7 +79,7 @@ public class MusicPage extends BasePage {
             return artist;
         }
 
-        public boolean equals(@NotNull MusicPage.Track obj){
+        public boolean equals(@NotNull MusicPage.Track obj) {
             return ((this.artist.equals(obj.artist)) && (this.name.equals(obj.name)));
         }
     }

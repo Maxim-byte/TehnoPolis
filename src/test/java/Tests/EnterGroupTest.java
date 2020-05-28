@@ -5,7 +5,6 @@ import Pages.MyMainPage;
 import SourceClases.NavigateClass;
 import org.junit.Test;
 
-
 public class EnterGroupTest extends BaseTest {
     private static String groupName = "Гонки";
     @Test
