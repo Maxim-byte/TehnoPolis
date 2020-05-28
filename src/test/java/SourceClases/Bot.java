@@ -9,6 +9,11 @@ public final class Bot {
         this.password = password;
     }
 
+    public Bot() {
+        this.username = "";
+        this.password = "";
+    }
+
     public String getUsername() {
         return username;
     }
