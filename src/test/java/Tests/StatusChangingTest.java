@@ -1,6 +1,7 @@
 package Tests;
 
 import Pages.MyHomePage;
+import SourceClases.NavigateClass;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 
@@ -11,7 +12,7 @@ public class StatusChangingTest extends BaseTest {
 
     @Test
     public void checkStatusChanging() {
-        final MyHomePage myHomePage = homePage(BOT3);
+        final MyHomePage myHomePage = NavigateClass.homePage(BOT.username, BOT.password);
         myHomePage.changeStatus(STATUS);
         refresh();
         myHomePage.checkStatusChanging(STATUS);

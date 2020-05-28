@@ -1,17 +1,16 @@
 package Tests;
 
 import Pages.GroupPage;
-import Pages.MyGroupPage;
 import Pages.MyMainPage;
+import SourceClases.NavigateClass;
 import org.junit.Test;
 
-import static com.codeborne.selenide.Selenide.refresh;
 
 public class EnterGroupTest extends BaseTest {
-private static String groupName = "Смешарики";
+    private static String groupName = "Бокс";
     @Test
     public void newPostTest() {
-        final MyMainPage myHomePage = login(BOT3);
+        final MyMainPage myHomePage = NavigateClass.login(BOT.username, BOT.password);
         final GroupPage groupPage = myHomePage.openGroups();
         groupPage.addNewGroup(groupName);
         groupPage.checkAdding();

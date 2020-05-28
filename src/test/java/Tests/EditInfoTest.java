@@ -1,7 +1,8 @@
 package Tests;
 
 import Pages.MyHomePage;
-import Pages.MyOptionsPage;
+import Pages.MyOptionsPage;;
+import SourceClases.NavigateClass;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 
@@ -11,7 +12,7 @@ public class EditInfoTest extends BaseTest {
 
     @Test
     public void changeInfoTest() {
-        final MyHomePage myHomePage = homePage(BOT3);
+        final MyHomePage myHomePage = NavigateClass.homePage(BOT.username, BOT.password);
         final MyOptionsPage myOptionsPage = myHomePage.openInfoPage();
         myOptionsPage.changeNameAndSurname(NAME, SURNAME);
         myOptionsPage.checkNameAndSurname(NAME, SURNAME);
