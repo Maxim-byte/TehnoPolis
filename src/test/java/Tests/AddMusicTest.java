@@ -7,7 +7,7 @@ import org.junit.Test;
 public class AddMusicTest extends BaseTest {
     @Test
     public void AddMusicAndCheckIt() {
-        final MusicPage musicPage = NavigateClass.musicPage(BOT.username, BOT.password);
+        final MusicPage musicPage = NavigateClass.openMusicPage(BOT.getUsername(), BOT.getPassword());
         musicPage.addTrack();
         musicPage.openMyLibrary();
         musicPage.checkAddTrack();

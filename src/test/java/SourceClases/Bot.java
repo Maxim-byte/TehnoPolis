@@ -1,8 +1,8 @@
 package SourceClases;
 
 public final class Bot {
-    public final String username;
-    public final String password;
+    private final String username;
+    private final String password;
 
     public Bot(String username, String password) {
         this.username = username;

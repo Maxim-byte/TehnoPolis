@@ -106,7 +106,6 @@ public class ElementUtils {
      * @param message String for error.
      * @param locator Locator on element for finding
      */
-    @NotNull
     public static void checkPresentAndVisibility(String message, By locator) {
         Assert.assertTrue(message, isElementPresent(locator) && isElementVisible(locator));
     }
@@ -117,7 +116,7 @@ public class ElementUtils {
     }
 
     public static void checkEqualsWithAssert(String message, @NotNull Object obj1, Object obj2) {
-        Assert.assertFalse(message, obj1.equals(obj2));
+        Assert.assertNotEquals(message, obj1, obj2);
     }
 
     public static boolean isDisplayed(By locator) {
