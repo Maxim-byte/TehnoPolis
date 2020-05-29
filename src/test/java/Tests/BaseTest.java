@@ -15,6 +15,7 @@ public class BaseTest {
     @Before
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "C:\\config\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
         System.setProperty("selenide.browser", "Chrome");
         open(BASE_URL);
     }

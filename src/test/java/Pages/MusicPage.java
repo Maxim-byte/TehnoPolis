@@ -26,16 +26,24 @@ public class MusicPage extends BasePage {
 
     public void openMyLibrary() {
         ElementUtils.click(MUSIC_MY_LIBRARY_BUTTON);
+        updateLastLibraryTrack();
     }
 
     public void addTrack() {
         ElementUtils.click(MUSIC_ADD_BUTTON);
-        trackAdded = new Track(getAddTrackTitle(), getAddTrackArtist());
+        trackAdded = new Track(getAddedTrackTitle(), getAddedTrackArtist());
     }
 
-    public void checkAddTrack() {
-        trackLibrary = new Track(getLibraryTrackTitle(), getLibraryTrackArtist());//TODO убрать создание
-        ElementUtils.checkEqualsWithAssert("The track is not added", trackAdded, trackLibrary);
+    public void checkLibraryForAdding() {
+        checkEqualsTrack("The track is not added", trackAdded, trackLibrary);
+    }
+
+    private void checkEqualsTrack(String message, Track track1, Track track2) {
+        ElementUtils.checkEqualsWithAssert(message, track1, track2);
+    }
+
+    private void updateLastLibraryTrack() {
+        trackLibrary = new Track(getLibraryTrackTitle(), getLibraryTrackArtist());
     }
 
     @Override
@@ -46,11 +54,11 @@ public class MusicPage extends BasePage {
                 MUSIC_MY_LIBRARY_BUTTON);
     }
 
-    private String getAddTrackTitle() {
+    private String getAddedTrackTitle() {
         return ElementUtils.getValue(MUSIC_HEADLINE_TRACK_TITLE);
     }
 
-    private String getAddTrackArtist() {
+    private String getAddedTrackArtist() {
         return ElementUtils.getValue(MUSIC_HEADLINE_TRACK_ARTIST);
     }
 

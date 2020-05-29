@@ -14,7 +14,7 @@ public class NoteTransformer {
         if (elements.isEmpty()) {
             return Collections.emptyList();
         }
-        List<NoteCard> noteCardList = new ArrayList<>();
+        List<NoteCard> noteCardList = new ArrayList<NoteCard>();
         for (SelenideElement selenideElement : elements) {
             noteCardList.add(new NoteCard(selenideElement));
         }

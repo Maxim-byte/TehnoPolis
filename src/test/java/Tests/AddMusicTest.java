@@ -10,6 +10,6 @@ public class AddMusicTest extends BaseTest {
         final MusicPage musicPage = NavigateClass.openMusicPage(BOT.getUsername(), BOT.getPassword());
         musicPage.addTrack();
         musicPage.openMyLibrary();
-        musicPage.checkAddTrack();
+        musicPage.checkLibraryForAdding();
     }
 }
